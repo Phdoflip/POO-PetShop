@@ -1,63 +1,54 @@
-/* Reset básico */
-* {
-  box-sizing: border-box;
+/* Reset e básico */
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Container centralizado */
-.container {
-  max-width: 600px;
-  width: 90%;
-  margin: 0 auto;
-  padding: 20px 30px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-  z-index: 1; /* conteúdo na frente */
-}
-
-body {
-  background-color: #f5f5f5;
-  min-height: 100vh;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f7f7;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Header */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
 .header {
-  background-color: #eee;
-  padding: 10px 0;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 2;
+  background: #fff;
+  padding: 15px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
+  margin: 0;
   color: #333;
+  font-weight: 700;
+  font-size: 1.8rem;
 }
 
 .btn-nav {
+  padding: 8px 16px;
+  border: none;
   background-color: #555;
   color: white;
-  border: none;
+  font-weight: 600;
   border-radius: 6px;
-  padding: 8px 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -66,134 +57,207 @@ body {
   background-color: #333;
 }
 
-/* Main content */
-.main-content {
-  padding-bottom: 40px;
-}
-
-/* Listagem de animais */
 .animal-list ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .animal-card {
-  background: #fafafa;
-  padding: 10px 15px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-/* Forms */
-form > div {
-  margin-bottom: 12px;
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  font-size: 1rem;
   color: #444;
 }
 
-input {
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 8px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 25px 30px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #222;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 7px 10px;
+  margin-top: 4px;
+  border: 1.5px solid #aaa;
+  border-radius: 6px;
   font-size: 1rem;
 }
 
-input:focus {
+.modal-content input:focus {
+  border-color: #555;
   outline: none;
-  border-color: #777;
 }
 
-/* Mensagens de erro */
 .error-message {
-  color: #b00020;
-  font-size: 0.875rem;
-  margin-top: 3px;
+  font-size: 0.9rem;
+  color: #cc0000;
+  margin-top: 2px;
+  margin-bottom: 8px;
 }
 
-/* Botões */
-button[type="submit"] {
-  background-color: #555;
-  color: white;
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
   border: none;
   border-radius: 6px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
+.modal-buttons button[type="submit"] {
+  background-color: #555;
+  color: white;
+}
+
+.modal-buttons button[type="submit"]:hover {
   background-color: #333;
+}
+
+.modal-buttons button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+.modal-buttons button[type="button"]:hover {
+  background-color: #bbb;
+}
+
+/* Botões tipo animal */
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-group button {
+  flex: 1;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.8px solid #555;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-group button:hover {
+  background-color: #555;
+  color: white;
 }
 
 /* Footer */
 .footer {
-  background-color: #eee;
-  padding: 15px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
   margin-top: 40px;
-  position: relative;
-  z-index: 1;
+  padding: 10px 0;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
 }
 
-/* Falling emojis styling */
-.falling-emoji {
+/* Emotes caindo */
+.background-emotes {
+  pointer-events: none;
   position: fixed;
-  top: -3rem; /* inicia acima da tela */
-  user-select: none;
-  pointer-events: none; /* não interfere nos cliques */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.emote {
+  position: absolute;
   animation-name: fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  will-change: transform;
-  opacity: 0.7;
-  z-index: 0; /* atrás do conteúdo */
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.7;
+    top: -5%;
+    opacity: 0;
   }
-  50% {
-    transform: translateY(50vh) translateX(10px);
+  10% {
     opacity: 1;
   }
   100% {
-    transform: translateY(110vh) translateX(0);
-    opacity: 0.7;
+    top: 105%;
+    opacity: 0;
   }
 }
 
-/* Botões para escolher tipo de animal */
-.animal-type-buttons {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
+.background-emotes {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.animal-type-buttons button {
-  flex: 1; /* faz eles crescerem igualmente */
-  padding: 12px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 1.5px solid #555;
-  background-color: #eee;
-  cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+.emote {
+  position: absolute;
+  user-select: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
 }
 
-.animal-type-buttons button:hover {
-  background-color: #555;
-  color: #fff;
+@keyframes fall {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
 }

@@ -1,9 +1,8 @@
-// Peixe.ts
 import { Animal } from "./Animal";
 
 export class Peixe extends Animal {
-  #tipoAgua: string;
-  #tamanhoAquario: number;
+  private tipoAgua: string;
+  private tamanhoAquario: number;
 
   constructor(
     nome: string,
@@ -14,26 +13,11 @@ export class Peixe extends Animal {
     tamanhoAquario: number
   ) {
     super(nome, idade, peso, tutor);
-    this.#tipoAgua = tipoAgua;
-    this.#tamanhoAquario = tamanhoAquario;
+    this.tipoAgua = tipoAgua;
+    this.tamanhoAquario = tamanhoAquario;
   }
 
-  getTipoAgua(): string {
-    return this.#tipoAgua;
-  }
-
-  getTamanhoAquario(): number {
-    return this.#tamanhoAquario;
-  }
-
-  setTamanhoAquario(tamanho: number): void {
-    this.#tamanhoAquario = tamanho;
-  }
-
-  recomendarLimpezaAquario(): string {
-    if (this.#tamanhoAquario < 40) {
-      return "Recomenda-se limpar o aquário a cada semana.";
-    }
-    return "Recomenda-se limpar o aquário a cada duas semanas.";
-  }
+  recomendarLimpezaAquario() {
+  return "Recomendação: limpar o aquário";
+}
 }

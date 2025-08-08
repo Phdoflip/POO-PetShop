@@ -1,8 +1,8 @@
 import { Animal } from "./Animal";
 
 export class Gato extends Animal {
-  #raca: string;
-  #pelagem: string;
+  private raca: string;
+  private pelagem: string;
 
   constructor(
     nome: string,
@@ -13,22 +13,13 @@ export class Gato extends Animal {
     pelagem: string
   ) {
     super(nome, idade, peso, tutor);
-    this.#raca = raca;
-    this.#pelagem = pelagem;
+    this.raca = raca;
+    this.pelagem = pelagem;
   }
 
-  getRaca(): string {
-    return this.#raca;
-  }
-
-  getPelagem(): string {
-    return this.#pelagem;
-  }
-
-  recomendarTosa(): string {
-    if (this.#pelagem.toLowerCase() === "longa") {
-      return "Recomenda-se tosar a cada 2 meses.";
-    }
-    return "Tosa não é necessária com frequência.";
+  recomendarTosa() {
+    return "Recomendar tosa para o gato.";
   }
 }
+   
+    
